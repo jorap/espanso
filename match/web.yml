@@ -1,0 +1,89 @@
+# Tools to use to escape strings:
+# https://www.freeformatter.com/json-escape.html
+# https://www.toolsoverflow.com/string/escape-string
+
+matches:
+
+  - trigger: "]cssmed"
+    label: "CSS Media Queries"
+    replace: "@media (min-width: 600px) {\r\n\r\n}\r\n\r\n@media (min-width: 768px) {\r\n\r\n}\r\n\r\n@media (min-width: 1025px) {\r\n\r\n}\r\n\r\n@media (min-width: 1200px) {\r\n\r\n}\r\n\r\n@media (min-width: 1366px) {\r\n\r\n}\r\n\r\n@media (min-width: 1400px) {\r\n\r\n}\r\n\r\n@media (min-width: 1920px) {\r\n\r\n}"
+
+  - trigger: "]cssmed"
+    label: "CSS Media Queries - Maximum"
+    replace: "@media (max-width: 599px) {\r\n\r\n}\r\n\r\n@media (max-width: 767px) {\r\n\r\n}\r\n\r\n@media (max-width: 1024px) {\r\n\r\n}\r\n\r\n@media (max-width: 1199px) {\r\n\r\n}\r\n\r\n@media (max-width: 1365px) {\r\n\r\n}\r\n\r\n@media (max-width: 1399px) {\r\n\r\n}\r\n\r\n@media (max-width: 1919px) {\r\n\r\n}"
+
+  - trigger: "]phptest"
+    label: "?test=test"
+    replace: "\n<?php if(isset($_GET['test']) && $_GET['test'] == 'test'): ?>\n\n\t<?php\n\t\t/*\n\t\t?test=test\n\t\t*/\n\t\t// get_template_part('partials/template', 'test');\n\t?>\n\n<?php else: ?>\n\n\t<?php\n\t\t/*\n\t\tLIVE\n\t\t*/\n\t\t// get_template_part('partials/template', 'original');\n\t?>\n\n<?php endif; ?>\n"
+
+  - trigger: "]testingclass"
+    label: "testing_class"
+    replace: "<?php echo isset($_GET['test']) && $_GET['test'] === 'test' ? ' testing_class' : ''; ?>"
+
+  - trigger: "]dummyimage"
+    label: "Dummy Image"
+    replace: "https://picsum.photos/1920/1080.jpg?random=1"
+
+  - trigger: "]acfrow"
+    label: "Row Counter - get_row_index"
+    replace: "<?php echo get_row_index(); ?>\n\n<?php $is_active = (get_row_index() == 1) ? \"is-active\" : \"\"; ?>"
+
+  - trigger: "]aiapplication"
+    label: "AI Prompt Application"
+    replace: "Provide the complete list of practical and actionable tasks that we can apply in bullet points. Each task will have the following: 1. Exact quote highlighting the point 2. A summary of 3 points on how do execute the task 3. A score from 1 to 10 on how easy it is to apply 4. A score from 1 to 10 on how impactful it is when applied. Finally, provide 5 problems that the previous text answers."
+
+  - trigger: "]aifinalrating"
+    label: "AI Prompt Final Rating"
+    replace: "Based on the transcript provided, what was their final rating?"
+
+  - trigger: "]aikeytakeaways"
+    label: "AI Prompt Key Takeaways"
+    replace: "All key takeaways from the transcript provided earlier."
+
+  - trigger: "]wphomeurl"
+    label: "get_home_url"
+    replace: "<?php echo esc_url(get_home_url()); ?>"
+
+  - trigger: "]wpthemeurl"
+    label: "get_stylesheet_directory_uri - Theme URL"
+    replace: "<?php echo get_stylesheet_directory_uri(); ?>"
+
+  - trigger: "]phpif"
+    label: "PHP if()"
+    replace: "<?php if() : ?>\n<?php else : ?>\n<?php endif; ?>"
+
+  - trigger: "]phpifternaryshorthand"
+    label: "PHP if ternary shorthand"
+    replace: "<?php $result = (TRUE) ? \"true\" : \"false\"; ?>"
+
+  - trigger: "]acfif"
+    label: "PHP ACF if() Default Subfields"
+    replace: "<?php if(get_sub_field( 'accent_heading' )) : ?>\n    <h5>\n		<?php the_sub_field( 'accent_heading' ); ?>\n	</h5>\n<?php endif; ?>\n\n<?php if(get_sub_field( 'heading' )) : ?>\n    <h2>\n		<?php the_sub_field( 'heading' ); ?>\n	</h2>\n<?php endif; ?>\n\n<?php if(get_sub_field( 'text' )) : ?>\n	<?php the_sub_field( 'text' ); ?>\n<?php endif; ?>"
+
+  - trigger: "]acfif"
+    label: "PHP ACF if() Fields"
+    replace: "<?php if(get_field( 'accent_heading' )) : ?>\n    <h5>\n		<?php the_field( 'accent_heading' ); ?>\n	</h5>\n<?php endif; ?>\n\n<?php if(get_field( 'heading' )) : ?>\n    <h2>\n		<?php the_field( 'heading' ); ?>\n	</h2>\n<?php endif; ?>\n\n<?php if(get_field( 'text' )) : ?>\n	<?php the_field( 'text' ); ?>\n<?php endif; ?>"
+
+  - trigger: "]mailcleanup"
+    label: "Mail Cleanup"
+    replace: "savedbefore 1days"
+
+  - trigger: "]wpslug"
+    label: "WP Slug Title"
+    replace: "<?php echo sanitize_title($sting); ?>"
+
+  - trigger: "]nowp"
+    label: "Disable WP Rocket"
+    replace: "?nowprocket"
+
+  - trigger: "]localwp"
+    label: "LocalWP Auto Login"
+    replace: "?localwp_auto_login=1"
+
+  - trigger: "]acfcountrows"
+    label: "ACF Count Rows"
+    replace: "<?php\n$rows = get_sub_field('rows');\n$count_rows = (!empty($row)) ? count($rows) : 0;\n?>\n\n<?php for ($i = 0; $i < $count_rows; $i++) { ?>\n\n<?php echo $i; ?>\n\n<?php } ?>"
+
+  - trigger: "]acfbutton"
+    label: "ACF Button"
+    replace: "<?php if (have_rows('button')) : ?>\n	<?php while (have_rows('button')) : the_row(); ?>\n		<?php $link = get_sub_field('link'); ?>\n		<?php if ($link) : ?>\n			<a href=\"<?php echo esc_url($link['url']); ?>\" class=\"btn <?php the_sub_field('style'); ?>\" target=\"<?php echo esc_attr($link['target']); ?>\">\n				<?php echo esc_html($link['title']); ?>\n			</a>\n		<?php endif; ?>\n	<?php endwhile; ?>\n<?php endif; ?>"

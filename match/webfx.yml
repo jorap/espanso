@@ -1,0 +1,20 @@
+# Tools to use to escape strings:
+# https://www.freeformatter.com/json-escape.html
+# https://www.toolsoverflow.com/string/escape-string
+matches:
+
+  - trigger: "]du"
+    label: "#DailyUpdate Ending"
+    replace: "Let me know if you have any questions.\n#DailyUpdate"
+
+  - trigger: "]eod"
+    label: "#DailyUpdate"
+    html: '<p>Hi @!</p><p>This is completed.</p><p>Here is my #DailyUpdate</p><p><strong>Completed Today:</strong></p><ul><li>Item 1</li><li>Item 2</li><li>Item 3</li></ul><p><strong>Plans For Next Workday:</strong></p><ul><li>Respond to feedback on the task completed above, if necessary</li><li>Item 2</li><li>Item 3</li></ul><p><strong>Notes:</strong></p><ul><li>[1 / 1] Hour(s) consumed.</li></ul><p>Let me know if you have any questions!</p><p>#DailyUpdate</p><p><strong>FED Notes:</strong></p><ul><li>Item 1</li><li>Item 2</li><li>Item 3</li></ul>'
+
+  - trigger: "]fximg"
+    label: "fx_get_image_tag"
+    replace: "<?php $image = get_sub_field('image'); ?>\n<?php if ($image) : ?>\n	<?php echo fx_get_image_tag($image, 'object-fit img-responsive', 'full', false, array('alt' => '')); ?>\n<?php endif; ?>"
+
+  - trigger: "]fximg"
+    label: "fx_get_image_tag with placeholder"
+    replace: "<?php\n$image = get_sub_field( 'image' );\n$placeholder_image = get_field('placeholder_image', 'option');\n?>\n<?php if ($image) : ?>\n    <?php echo fx_get_image_tag($image, 'object-fit img-responsive', 'full', false, array('alt' => '')); ?>\n<?php elseif ($placeholder_image) : ?>\n    <?php echo fx_get_image_tag($placeholder_image, 'object-fit img-responsive', 'full', false, array('alt' => '')); ?>\n<?php endif; ?>"

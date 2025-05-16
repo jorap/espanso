@@ -42,3 +42,5 @@
 search_shortcut: CTRL+SHIFT+SPACE
 
 # For a list of all the available options, visit the official docs at: https://espanso.org/docs/
+
+show_notifications: false

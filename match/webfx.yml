@@ -9,7 +9,7 @@ matches:
 
   - trigger: "]end"
     label: "#DailyUpdate"
-    html: '<p>Hi @!</p><p>This is completed.</p><p>Here is my #DailyUpdate</p><p><strong>Completed Today:</strong></p><ul><li>Item 1</li><li>Item 2</li><li>Item 3</li></ul><p><strong>Plans For Next Workday:</strong></p><ul><li>Respond to feedback on the task completed above, if necessary</li><li>Item 2</li><li>Item 3</li></ul><p><strong>Notes:</strong></p><ul><li>[1 / 1] Hour(s) consumed.</li></ul><p>Please let me know if you have any questions!</p><p>#DailyUpdate</p><p><strong>FED Notes:</strong></p><ul><li>Item 1</li><li>Item 2</li><li>Item 3</li></ul>'
+    html: '<p>Hi @!</p><p>This is completed.</p><p>Here is my #DailyUpdate</p><p><strong>Completed Today:</strong></p><ul><li>Item 1</li><li>Item 2</li><li>Item 3</li></ul><p><strong>Plans For Next Workday:</strong></p><ul><li>Respond to feedback on the task completed above, if necessary</li><li>Item 2</li><li>Item 3</li></ul><p><strong>Notes:</strong></p><ul><li>Time consumed: [1 / 1] HR.</li></ul><p>Please let me know if you have any questions!</p><p>#DailyUpdate</p><p><strong>FED Notes:</strong></p><ul><li>Item 1</li><li>Item 2</li><li>Item 3</li></ul>'
 
   - trigger: "]fximg"
     label: "fx_get_image_tag"

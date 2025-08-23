@@ -39,7 +39,7 @@
 
 # --- Search shortcut
 # Shortcut to open espanso search bar
-search_shortcut: CTRL+SHIFT+SPACE
+search_shortcut: ALT+SPACE
 
 # For a list of all the available options, visit the official docs at: https://espanso.org/docs/
 

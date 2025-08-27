@@ -18,3 +18,7 @@ matches:
   - trigger: "]fximg"
     label: "fx_get_image_tag with placeholder"
     replace: "<?php\n$image = get_sub_field( 'image' );\n$placeholder_image = get_field('placeholder_image', 'option');\n?>\n<?php if ($image) : ?>\n    <?php echo fx_get_image_tag($image, 'object-fit img-responsive', 'full', false, array('alt' => '')); ?>\n<?php elseif ($placeholder_image) : ?>\n    <?php echo fx_get_image_tag($placeholder_image, 'object-fit img-responsive', 'full', false, array('alt' => '')); ?>\n<?php endif; ?>"
+
+  - trigger: "]agentos"
+    label: "Agent Os"
+    replace: "/j/projects/.agent-os/setup/project.sh"

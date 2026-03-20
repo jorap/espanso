@@ -26,3 +26,7 @@ matches:
   - trigger: "]stage"
     label: "webpagefxstage"
     replace: "?auth=10billion:revenuedriven"
+
+  - trigger: "]ws"
+    label: "webpagefxstage url"
+    replace: ".webpagefxstage.com?auth=10billion:revenuedriven"

@@ -23,10 +23,14 @@ matches:
     label: "Agent Os"
     replace: "/j/projects/.agent-os/setup/project.sh"
 
-  - trigger: "]stage"
+  - trigger: "]stg"
     label: "webpagefxstage"
     replace: "?auth=10billion:revenuedriven"
 
   - trigger: "]ws"
     label: "webpagefxstage url"
     replace: ".webpagefxstage.com?auth=10billion:revenuedriven"
+
+  - trigger: "]html"
+    label: "WYSIWYG HTML"
+    replace: "<div class=\"sub-heading\">Subheading</div>\n<h2>H2: Heading</h2>\n<p>Lorem ipsum dolor sit amet consectetur. Malesuada condimentum viverra amet quam aliquam neque. Non vulputate nulla amet in molestie morbi eget sit risus. A consectetur sit facilisi natoque tellus cum quis viverra. Convallis amet velit at id link in text faucibus id elementum fringilla. Sed ut sed viverra est lobortis. Elit massa enim at semper erat maecenas. Hendrerit enim fermentum cursus pellentesque justo. Purus quam tellus duis eu donec rhoncus. In phasellus eu lorem fermentum amet. Eget dolor feugiat duis donec duis. Tristique <a href=\"#\">link in text</a> iaculis elementum tempor egestas interdum. Ipsum blandit lectus augue dui pulvinar. Phasellus fermentum varius sociis ac.</p>\n<p><a href=\"#\" class=\"btn btn-primary\">PRIMARY CTA</a> <a href=\"#\" class=\"btn btn-secondary\">SECONDARY CTA</a> <a href=\"#\" class=\"btn btn-tertiary\">tertiary cta</a></p>"

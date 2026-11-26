@@ -1,0 +1,21 @@
+# getip package
+
+matches:
+  - trigger: ":getip"
+    label: "Linux IP"
+    replace: "{{output}}"
+    vars:
+      - name: output
+        type: shell
+        params:
+          cmd: "curl ifconfig.me"
+
+  - trigger: ":winip"
+    label: "Windows IP"
+    replace: "{{output}}"
+    vars:
+      - name: output
+        type: shell
+        params:
+          cmd: "curl ifconfig.me"
+          shell: cmd

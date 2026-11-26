@@ -1,0 +1,112 @@
+# espanso match file
+
+# For a complete introduction, visit the official docs at: https://espanso.org/docs/
+
+# You can use this file to define the base matches (aka snippets)
+# that will be available in every application when using espanso.
+
+# Matches are substitution rules: when you type the "trigger" string
+# it gets replaced by the "replace" string.
+
+# Tools to use to escape strings:
+# https://www.freeformatter.com/json-escape.html
+# https://www.toolsoverflow.com/string/escape-string
+
+matches:
+  # Simple text replacement
+  - trigger: "]li"
+    label: "Lorem Ipsum"
+    replace: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed id bibendum turpis. Aenean eu mi libero. Suspendisse quis feugiat orci. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos."
+
+  - trigger: "]li"
+    label: "Lorem Ipsum - Title"
+    replace: "Lorem ipsum dolor sit amet"
+
+  - trigger: "]li"
+    label: "Lorem Ipsum - Paragraphs"
+    replace: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec lacinia mi mattis nisi ultricies egestas. Nam sollicitudin, sem ut cursus cursus, quam libero finibus urna, at tempus est purus eu tellus. Quisque gravida leo est, a tincidunt turpis mattis a. Nulla pulvinar magna quis mattis aliquam. Vestibulum nec libero fringilla, rutrum nisi vitae, tincidunt quam. Sed condimentum efficitur ex vitae egestas. Sed convallis at tortor nec feugiat. Morbi non lorem scelerisque, scelerisque massa at, porta ligula. Donec consectetur mollis purus at bibendum. In hac habitasse platea dictumst. Pellentesque rutrum nisi vitae congue tincidunt. Nulla interdum iaculis nibh, vel mollis purus tristique ac. Sed eu mollis erat. Curabitur scelerisque, erat quis suscipit tincidunt, nunc nunc rhoncus tellus, a tincidunt elit magna mollis ante. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aenean enim nisi, bibendum eget sodales sed, blandit ac est.\n\nNullam eu consectetur nisl. Pellentesque convallis malesuada neque, sed viverra orci interdum dignissim. Maecenas id odio sed risus porttitor maximus. Ut a commodo augue, vel aliquam lacus. Sed nibh risus, dignissim sed laoreet eu, scelerisque ut risus. Quisque non scelerisque turpis. Phasellus ac pellentesque mi. Ut tincidunt pellentesque velit eget consequat. Donec commodo eros ligula, quis vestibulum purus consectetur eu. Praesent ut luctus nibh. Suspendisse consectetur ligula at nisi luctus suscipit. Vivamus nec luctus velit. Suspendisse quis lobortis justo, vitae gravida massa. Vestibulum facilisis, dolor id congue lacinia, justo lacus aliquam odio, vel molestie nisl sapien ullamcorper sapien. Vestibulum ultrices nibh in tortor finibus, id posuere nulla ornare. Ut leo ante, efficitur vel fringilla id, suscipit et leo.\n\nProin tempor dolor lorem, id consequat erat scelerisque non. Nulla quis tincidunt diam. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Maecenas nunc odio, rutrum at maximus a, pellentesque quis sapien. Mauris vitae semper enim, a pharetra odio. Quisque augue dolor, congue et facilisis eu, lobortis id leo. Mauris id ex ipsum. Pellentesque lorem sem, consectetur at auctor eu, molestie a augue."
+
+  # NOTE: espanso uses YAML to define matches, so pay attention to the indentation!
+
+  # But matches can also be dynamic:
+
+  # Print the current date
+  - trigger: "]ymd"
+    label: "Date Today"
+    replace: "{{mydate}}"
+    vars:
+      - name: mydate
+        type: date
+        params:
+          format: "%Y-%m-%d"
+
+  - trigger: "]now"
+    label: "Time Now"
+    replace: "{{mydate}}"
+    vars:
+      - name: mydate
+        type: date
+        params:
+          format: "%Y%m%d%H%M%S"
+
+  # Print the output of a shell command
+  - trigger: "]shell"
+    replace: "{{output}}"
+    vars:
+      - name: output
+        type: shell
+        params:
+          cmd: "echo 'Hello from your shell'"
+
+  - trigger: ":form"
+    replace: "Hey {{form1.name}}, how are you? Do you like {{form1.fruit}}?"
+    vars:
+      - name: "form1"
+        type: form
+        params:
+          layout: "Name: [[name]] \nFruit: [[fruit]]"
+          fields:
+            name:
+              multiline: true
+            fruit:
+              type: list # or `choice`
+              values:
+                - Apples
+                - Bananas
+                - Oranges
+                - Peaches
+
+
+  - trigger: ":essnip"
+    label: "Insert Snippet"
+    replace: "{{output}}"
+    vars:
+      - name: form1
+        type: form
+        params:
+          layout: |
+            Please enter the espanso Triggerphrase, the desired Replacement
+            and select whether it is a word or not.
+
+            Trigger [[trigger]]
+            Replace [[replace]]
+            Word: [[word]]
+          fields:
+            replace:
+              multiline: true
+            word:
+              type: choice
+              values:
+                - 'true'
+                - 'false'
+              default: 'false'
+      - name: output
+        type: shell
+        params:
+          cmd: "\"\n\n  - trigger: '$env:ESPANSO_FORM1_TRIGGER'\n    replace: '$env:ESPANSO_FORM1_REPLACE'\" | Out-File -FilePath J:\\jorap\\_\\espanso-portable\\.espanso\\match\\test.yml -Append -Encoding Utf8"
+
+  - trigger: "]ctt"
+    label: "ChrisTitus Tech Windows Script"
+    replace: "Start-Process powershell -Verb RunAs -ArgumentList '-NoProfile -Command \"irm christitus.com/win | iex\"'"
+
+  # And much more! For more information, visit the docs: https://espanso.org/docs/

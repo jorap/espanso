@@ -1,0 +1,9 @@
+# macOS
+.DS_Store
+
+# Cursor / SpecStory
+.cursorindexingignore
+.specstory/
+
+# Editor backups
+*.yml.bak

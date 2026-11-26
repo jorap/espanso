@@ -1,0 +1,113 @@
+# Tools to use to escape strings:
+# https://www.freeformatter.com/json-escape.html
+# https://www.toolsoverflow.com/string/escape-string
+
+matches:
+
+  - trigger: "]cssmed"
+    label: "CSS Media Queries"
+    replace: "@media (min-width: 600px) {\r\n\r\n}\r\n\r\n@media (min-width: 768px) {\r\n\r\n}\r\n\r\n@media (min-width: 1025px) {\r\n\r\n}\r\n\r\n@media (min-width: 1200px) {\r\n\r\n}\r\n\r\n@media (min-width: 1366px) {\r\n\r\n}\r\n\r\n@media (min-width: 1400px) {\r\n\r\n}\r\n\r\n@media (min-width: 1920px) {\r\n\r\n}"
+
+  - trigger: "]cssmed"
+    label: "CSS Media Queries - Maximum"
+    replace: "@media (max-width: 599px) {\r\n\r\n}\r\n\r\n@media (max-width: 767px) {\r\n\r\n}\r\n\r\n@media (max-width: 1024px) {\r\n\r\n}\r\n\r\n@media (max-width: 1199px) {\r\n\r\n}\r\n\r\n@media (max-width: 1365px) {\r\n\r\n}\r\n\r\n@media (max-width: 1399px) {\r\n\r\n}\r\n\r\n@media (max-width: 1919px) {\r\n\r\n}"
+
+  - trigger: "]phptest"
+    label: "?test=test"
+    replace: "\n<?php if(isset($_GET['test']) && $_GET['test'] == 'test'): ?>\n\n\t<?php\n\t\t/*\n\t\t?test=test\n\t\t*/\n\t\t// get_template_part('partials/template', 'test');\n\t?>\n\n<?php else: ?>\n\n\t<?php\n\t\t/*\n\t\tLIVE\n\t\t*/\n\t\t// get_template_part('partials/template', 'original');\n\t?>\n\n<?php endif; ?>\n"
+
+  - trigger: "]testingclass"
+    label: "testing_class"
+    replace: "<?php echo isset($_GET['test']) && $_GET['test'] === 'test' ? ' testing_class' : ''; ?>"
+
+  - trigger: "]dummyimage"
+    label: "Dummy Image"
+    replace: "https://picsum.photos/1920/1080.jpg?random=1"
+
+  - trigger: "]acfrow"
+    label: "Row Counter - get_row_index"
+    replace: "<?php echo get_row_index(); ?>\n\n<?php $is_active = (get_row_index() == 1) ? \"is-active\" : \"\"; ?>"
+
+  - trigger: "]aiapplication"
+    label: "AI Prompt Application"
+    replace: "Provide the complete list of practical and actionable tasks that we can apply in bullet points. Each task will have the following: 1. Exact quote highlighting the point 2. A summary of 3 points on how do execute the task 3. A score from 1 to 10 on how easy it is to apply 4. A score from 1 to 10 on how impactful it is when applied. Finally, provide 5 problems that the previous text answers."
+
+  - trigger: "]aifinalrating"
+    label: "AI Prompt Final Rating"
+    replace: "Based on the transcript provided, what was their final rating?"
+
+  - trigger: "]aikeytakeaways"
+    label: "AI Prompt Key Takeaways"
+    replace: "All key takeaways from the transcript provided earlier."
+
+  - trigger: "]wphomeurl"
+    label: "get_home_url"
+    replace: "<?php echo esc_url(get_home_url()); ?>"
+
+  - trigger: "]wpthemeurl"
+    label: "get_stylesheet_directory_uri - Theme URL"
+    replace: "<?php echo get_stylesheet_directory_uri(); ?>"
+
+  - trigger: "]phpif"
+    label: "PHP if()"
+    replace: "<?php if() : ?>\n<?php else : ?>\n<?php endif; ?>"
+
+  - trigger: "]phpifternaryshorthand"
+    label: "PHP if ternary shorthand"
+    replace: "<?php $result = (TRUE) ? \"true\" : \"false\"; ?>"
+
+  - trigger: "]acfif"
+    label: "PHP ACF if() Default Subfields"
+    replace: "<?php if(get_sub_field( 'accent_heading' )) : ?>\n    <h5>\n		<?php the_sub_field( 'accent_heading' ); ?>\n	</h5>\n<?php endif; ?>\n\n<?php if(get_sub_field( 'heading' )) : ?>\n    <h2>\n		<?php the_sub_field( 'heading' ); ?>\n	</h2>\n<?php endif; ?>\n\n<?php if(get_sub_field( 'text' )) : ?>\n	<?php the_sub_field( 'text' ); ?>\n<?php endif; ?>"
+
+  - trigger: "]acfif"
+    label: "PHP ACF if() Fields"
+    replace: "<?php if(get_field( 'accent_heading' )) : ?>\n    <h5>\n		<?php the_field( 'accent_heading' ); ?>\n	</h5>\n<?php endif; ?>\n\n<?php if(get_field( 'heading' )) : ?>\n    <h2>\n		<?php the_field( 'heading' ); ?>\n	</h2>\n<?php endif; ?>\n\n<?php if(get_field( 'text' )) : ?>\n	<?php the_field( 'text' ); ?>\n<?php endif; ?>"
+
+  - trigger: "]mailcleanup"
+    label: "Mail Cleanup"
+    replace: "savedbefore 1days"
+
+  - trigger: "]wpslug"
+    label: "WP Slug Title"
+    replace: "<?php echo sanitize_title($sting); ?>"
+
+  - trigger: "]nowp"
+    label: "Disable WP Rocket"
+    replace: "?nowprocket"
+
+  - trigger: "]localwp"
+    label: "LocalWP Auto Login"
+    replace: "?localwp_auto_login=1"
+
+  - trigger: "]acfcountrows"
+    label: "ACF Count Rows"
+    replace: "<?php\n$rows = get_sub_field('rows');\n$count_rows = (!empty($row)) ? count($rows) : 0;\n?>\n\n<?php for ($i = 0; $i < $count_rows; $i++) { ?>\n\n<?php echo $i; ?>\n\n<?php } ?>"
+
+  - trigger: "]acfbutton"
+    label: "ACF Button"
+    replace: "<?php if (have_rows('button')) : ?>\n	<?php while (have_rows('button')) : the_row(); ?>\n		<?php $link = get_sub_field('link'); ?>\n		<?php if ($link) : ?>\n			<a href=\"<?php echo esc_url($link['url']); ?>\" class=\"btn <?php the_sub_field('style'); ?>\" target=\"<?php echo esc_attr($link['target']); ?>\">\n				<?php echo esc_html($link['title']); ?>\n			</a>\n		<?php endif; ?>\n	<?php endwhile; ?>\n<?php endif; ?>"
+
+  - trigger: "]aicraftprompt"
+    label: "AI Craft Prompt"
+    replace: "CONTEXT: We are going to create one of the best ChatGPT prompts ever written. The best prompts include comprehensive details to fully inform the Large Language Model of the prompt\u2019s: goals, required areas of expertise, domain knowledge, preferred format, target audience, references, examples, and the best approach to accomplish the objective. Based on this and the following information, you will be able to write this exceptional prompt.\r\n\r\nROLE: You are an LLM prompt generation expert. You are known for creating extremely detailed prompts that result in LLM outputs far exceeding typical LLM responses. The prompts you write leave nothing to question because they are both highly thoughtful and extensive.\r\n\r\nACTION:\r\n\r\n1) Before you begin writing this prompt, you will first look to receive the prompt topic or theme. If I don\u2019t provide the topic or theme for you, please request it.\r\n\r\n2) Once you are clear about the topic or theme, please also review the Format and Example provided below.\r\n\r\n3) If necessary, the prompt should include \u201Cfill in the blank\u201D elements for the user to populate based on their needs.\r\n\r\n4) Take a deep breath and take it one step at a time.\r\n\r\n5) Once you\u2019ve ingested all the information, write the best prompt ever created.\r\n\r\nFORMAT: For organizational purposes, you will use an acronym called \u201CC.R.A.F.T.\u201D where each letter of the acronym CRAFT represents a section of the prompt. Your format and section descriptions for this prompt development are as follows:\r\n\r\nContext: This section describes the current context that outlines the situation for which the prompt is needed. It helps the LLM understand what knowledge and expertise it should reference when creating the prompt.\r\n\r\nRole: This section defines the type of experience the LLM has, its skill set, and its level of expertise relative to the prompt requested. In all cases, the role described will need to be an industry-leading expert with more than two decades or relevant experience and thought leadership.\r\n\r\nAction: This is the action that the prompt will ask the LLM to take. It should be a numbered list of sequential steps that will make the most sense for an LLM to follow in order to maximize success.\r\n\r\nFormat: This refers to the structural arrangement or presentation style of the LLM\u2019s generated content. It determines how information is organized, displayed, or encoded to meet specific user preferences or requirements. Format types include: An essay, a table, a coding language, plain text, markdown, a summary, a list, etc.\r\n\r\nTarget Audience: This will be the ultimate consumer of the output that your prompt creates. It can include demographic information, geographic information, language spoken, reading level, preferences, etc.\r\n\r\nTARGET AUDIENCE: The target audience for this prompt creation is ChatGPT 4o or ChatGPT o1.\r\n\r\nEXAMPLE: Here is an Example of a CRAFT Prompt for your reference:\r\n\r\n**Context:** You are tasked with creating a detailed guide to help individuals set, track, and achieve monthly goals. The purpose of this guide is to break down larger objectives into manageable, actionable steps that align with a person\u2019s overall vision for the year. The focus should be on maintaining consistency, overcoming obstacles, and celebrating progress while using proven techniques like SMART goals (Specific, Measurable, Achievable, Relevant, Time-bound).\r\n\r\n**Role:** You are an expert productivity coach with over two decades of experience in helping individuals optimize their time, define clear goals, and achieve sustained success. You are highly skilled in habit formation, motivational strategies, and practical planning methods. Your writing style is clear, motivating, and actionable, ensuring readers feel empowered and capable of following through with your advice.\r\n\r\n**Action:** 1. Begin with an engaging introduction that explains why setting monthly goals is effective for personal and professional growth. Highlight the benefits of short-term goal planning. 2. Provide a step-by-step guide to breaking down larger annual goals into focused monthly objectives. 3. Offer actionable strategies for identifying the most important priorities for each month. 4. Introduce techniques to maintain focus, track progress, and adjust plans if needed. 5. Include examples of monthly goals for common areas of life (e.g., health, career, finances, personal development). 6. Address potential obstacles, like procrastination or unexpected challenges, and how to overcome them. 7. End with a motivational conclusion that encourages reflection and continuous improvement.\r\n\r\n**Format:** Write the guide in plain text, using clear headings and subheadings for each section. Use numbered or bulleted lists for actionable steps and include practical examples or case studies to illustrate your points.\r\n\r\n**Target Audience:** The target audience includes working professionals and entrepreneurs aged 25-55 who are seeking practical, straightforward strategies to improve their productivity and achieve their goals. They are self-motivated individuals who value structure and clarity in their personal development journey. They prefer reading at a 6th grade level.\r\n\r\n-End example-\r\n\r\nPlease reference the example I have just provided for your output. Again, take a deep breath and take it one step at a time."
+
+  - trigger: "]du"
+    label: "#DailyUpdate Ending"
+    replace: "Let me know if you have any questions.\n#DailyUpdate"
+
+  - trigger: "]end"
+    label: "#DailyUpdate"
+    html: '<p>Hi @ !</p><p>This is completed.</p><p>Here is my #DailyUpdate</p><p><strong>Summary:</strong></p><ul><li>Item 1</li><li>Item 2</li><li>Item 3</li></ul><p><strong>Plans For Next Workday:</strong></p><ul><li>Respond to feedback on the task completed above, if necessary</li><li>Item 2</li><li>Item 3</li></ul><p><strong>Notes:</strong></p><ul><li>Time consumed: 0.5 hours</li></ul><p>Please let me know if you have any questions!</p><p>#DailyUpdate</p><p><strong>FED Notes:</strong></p><ul><li>Item 1</li><li>Item 2</li><li>Item 3</li></ul>'
+
+  - trigger: "]agentos"
+    label: "Agent Os"
+    replace: "/j/projects/.agent-os/setup/project.sh"
+
+  - trigger: "]html"
+    label: "WYSIWYG HTML"
+    replace: "<div class=\"sub-heading\">Subheading</div>\n<h2>H2: Heading</h2>\n<p>Lorem ipsum dolor sit amet consectetur. Malesuada condimentum viverra amet quam aliquam neque. Non vulputate nulla amet in molestie morbi eget sit risus. A consectetur sit facilisi natoque tellus cum quis viverra. Convallis amet velit at id link in text faucibus id elementum fringilla. Sed ut sed viverra est lobortis. Elit massa enim at semper erat maecenas. Hendrerit enim fermentum cursus pellentesque justo. Purus quam tellus duis eu donec rhoncus. In phasellus eu lorem fermentum amet. Eget dolor feugiat duis donec duis. Tristique <a href=\"#\">link in text</a> iaculis elementum tempor egestas interdum. Ipsum blandit lectus augue dui pulvinar. Phasellus fermentum varius sociis ac.</p>\n<p><a href=\"#\" class=\"btn btn-primary\">PRIMARY CTA</a> <a href=\"#\" class=\"btn btn-secondary\">SECONDARY CTA</a> <a href=\"#\" class=\"btn btn-tertiary\">tertiary cta</a></p>"
+
+
+
+

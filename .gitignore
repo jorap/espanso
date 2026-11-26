@@ -5,5 +5,8 @@
 .cursorindexingignore
 .specstory/
 
+# VSCode
+.vscode/
+
 # Editor backups
 *.yml.bak

@@ -40,6 +40,10 @@ matches:
     label: "AI Prompt Key Takeaways"
     replace: "All key takeaways from the transcript provided earlier."
 
+  - trigger: "]aitweet10"
+    label: "AI 10 Tweets"
+    replace: "Use the ranked topic and ranking context already in this conversation. If missing, ask for: (1) the topic, (2) what was ranked and how, (3) voice or audience if unclear.\n\nWrite exactly 10 tweet drafts for that ranked topic.\n\nRules:\n- Each tweet must be 100-120 characters inclusive (spaces and punctuation count).\n- Rewrite until every tweet is in range.\n- Rank #1 (best) to #10 for hook, clarity, and fit; write for X/Twitter (no title tags, no meta descriptions).\n- No filler just to hit length.\n\nOutput only this list unless you needed to ask for inputs:\n1. Tweet text (NNN chars)\n2. Tweet text (NNN chars)\n...\n10. Tweet text (NNN chars)\n\nRecheck counts; fix wrong (NNN chars) labels."
+
   - trigger: "]wphomeurl"
     label: "get_home_url"
     replace: "<?php echo esc_url(get_home_url()); ?>"
